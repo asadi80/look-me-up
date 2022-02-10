@@ -1,0 +1,117 @@
+const router = require('express').Router();
+const { Profile, User, Link } = require('../../models');
+
+// get all profiles
+router.get('/', (req, res) => {
+    Profile.findAll({
+      attributes: ['id', 'firstname', 'lastname','description', 'created_at'],
+      order: [['created_at', 'DESC']], 
+      include: [
+        {
+          model: User,
+          attributes: ['id']
+        }
+      ]
+    })
+      .then(dbProfileData => res.json(dbProfileData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+// ---------------------------------------------------------------------------
+// find profile by id
+router.get('/:id', (req, res) => {
+    Profile.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: ['id', 'firstname', 'lastname','description', 'created_at'],
+      order: [['created_at', 'DESC']],
+      include: [
+        {
+          model: User,
+          attributes: ['id']
+        }
+      ],
+    
+    })
+      .then(dbProfileData => {
+        if (!dbProfileData) {
+          res.status(404).json({ message: 'No profile profile with this id' });
+          return;
+        }
+        res.json(dbProfileData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+  // ---------------------------------------------------------------------------
+  //create profile
+  router.post('/', (req, res) => {
+      // expects {firstname: 'Rafi', lastname: 'Sadi', description: "bla bla bla",user_id:1 }
+      Profile.create({
+       
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        description:req.body.description,
+        user_id: req.body.user_id
+      })
+        .then(dbProfileData => res.json(dbProfileData))
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    });
+  // ---------------------------------------------------------------------------
+  // update pofile
+  router.put('/:id', (req, res) => {
+    Profile.update(
+      {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        description:req.body.description,
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+      .then(dbProfileData => {
+        if (!dbProfileData) {
+          res.status(404).json({ message: 'No profile found with this id' });
+          return;
+        }
+        res.json(dbProfileData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+  // ---------------------------------------------------------------------------
+
+  // delete profile
+  router.delete('/:id', (req, res) => {
+    Profile.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbProfileData => {
+        if (!dbProfileData) {
+          res.status(404).json({ message: 'No profile found with this id' });
+          return;
+        }
+        res.json(dbProfileData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+  module.exports = router;

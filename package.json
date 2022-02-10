@@ -1,19 +1,19 @@
 {
   "name": "look-me-up",
   "version": "1.0.0",
-  "description": "group project",
-  "main": "server.js",
+  "description": "Social Media App",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start":"nodemon server.js"
   },
+  "author": "Abdurraouf Sadi, Eiko Ujifusa, Alex Marten, Curtis Hong, Mianta McKnight, Dan Doherty",
+  "license": "ISC",
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/asadi80/look-me-up.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/asadi80/look-me-up/issues"
   },

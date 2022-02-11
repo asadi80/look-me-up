@@ -2,13 +2,22 @@
   "name": "look-me-up",
   "version": "1.0.0",
   "description": "Social Media App",
-  "main": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "Abdurraouf Sadi",
+  "author": "Abdurraouf Sadi, Eiko Ujifusa, Alex Marten, Curtis Hong, Mianta McKnight, Dan Doherty",
   "license": "ISC",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asadi80/look-me-up.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/asadi80/look-me-up/issues"
+  },
+  "homepage": "https://github.com/asadi80/look-me-up#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",
@@ -17,6 +26,9 @@
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.16.1"
+    "sequelize": "^6.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

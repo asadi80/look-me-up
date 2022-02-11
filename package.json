@@ -4,7 +4,7 @@
   "description": "Social Media App",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "Abdurraouf Sadi, Eiko Ujifusa, Alex Marten, Curtis Hong, Mianta McKnight, Dan Doherty",
   "license": "ISC",
@@ -27,5 +27,8 @@
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

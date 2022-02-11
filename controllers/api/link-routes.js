@@ -4,7 +4,7 @@ const { Link, User } = require('../../models');
 // get all users
 router.get('/', (req, res) => {
     Link.findAll({
-      attributes: ['id', 'link_url', 'title', 'created_at'],
+      // attributes: ['id', 'link_url', 'title', 'created_at'],
       order: [['created_at', 'DESC']], 
       include: [
         {
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
       where: {
         id: req.params.id
       },
-      attributes: ['id', 'link_url', 'title', 'created_at'],
+      // attributes: ['id', 'link_url', 'title', 'created_at'],
       include: [
         {
           model: User,
@@ -51,9 +51,12 @@ router.get('/:id', (req, res) => {
       // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
       Link.create({
        
-        title: req.body.title,
-        link_url: req.body.link_url,
-        user_id: req.body.user_id
+        link_url_facebook: req.body.link_url_facebook,
+        link_url_twitter: req.body.link_url_twitter,
+        link_url_linkedin:req.body.link_url_linkedin,
+        link_url_github:req.body.link_url_github,
+        link_url_intagram:req.body.link_url_intagram,
+        user_id: req.session.user_id
       })
         .then(dbLinktData => res.json(dbLinktData))
         .catch(err => {
@@ -66,8 +69,11 @@ router.get('/:id', (req, res) => {
   router.put('/:id', (req, res) => {
     Link.update(
       {
-        title: req.body.title,
-        link_url: req.body.link_url
+        link_url_facebook: req.body.link_url_facebook,
+        link_url_twitter: req.body.link_url_twitter,
+        link_url_linkedin:req.body.link_url_linkedin,
+        link_url_github:req.body.link_url_github,
+        link_url_intagram:req.body.link_url_intagram,
       },
       {
         where: {

@@ -27,7 +27,7 @@ MDBootstrap, mySQL, Heroku, Sequelize ORM, Handlebars.js, Node.js, and Express.j
 - Create an account on **Look Me Up** on the homepage
 - create your profile and then
 ## Links
-
+- []()
 ## Collaborators-Credits
 - Abdurraouf Sadi &mdash; [github.com/asadi80](https://github.com/asadi80)
 - Alex Marten &mdash; [github.com/alex-d-marten](https://github.com/alex-d-marten)

@@ -41,4 +41,4 @@ MDBootstrap, mySQL, Heroku, Sequelize ORM, Handlebars.js, Node.js, and Express.j
 ![css](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&logoWidth=30)
 
 
-&copy; 2022 Curtis Hong, Mianta McKnight, Alex Marten, Tina Sieben, Abdurraouf Sadi, Eiko Ujifusa, Dan Doherty  | All Rights Reserved
+&copy; 2022 Curtis Hong, Mianta McKnight, Alex Marten, Tina Sieben, Abdurraouf Sadi, Eiko Ujifusa, Dan Doherty  || All Rights Reserved

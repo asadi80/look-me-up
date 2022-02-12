@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { Profile,User} = require('../../models');
+const withAuth = require('../../utils/auth');
+
 // GET /api/users
-router.get('/', (req, res) => {
+router.get('/',withAuth, (req, res) => {
     // Access our User model and run .findAll() method)
     Profile.findAll({
       // attributes: ['id', 'link_url', 'title', 'created_at'],
@@ -22,7 +24,7 @@ router.get('/', (req, res) => {
 //   --------------------------------------------------------------------------------------------
 
 // GET /api/users/1
-router.get('/:id', (req, res) => {
+router.get('/:id',withAuth, (req, res) => {
   Profile.findOne({
     // attributes: ['id', 'link_url', 'title', 'created_at'],
     where: {
@@ -47,12 +49,13 @@ router.get('/:id', (req, res) => {
 
 
 // POST /api/users
-router.post('/', (req, res) => {
+router.post('/',withAuth, (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     Profile.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      description: req.body.description
+      description: req.body.description,
+      user_id: req.session.user_id
     })
     .then(dbProfileData => res.json(dbProfileData))
         .catch(err => {
@@ -63,7 +66,7 @@ router.post('/', (req, res) => {
   //   ------------------------------------------------------------------------------------------------
 
   // PUT /api/users/1
-  router.put('/:id', (req, res) => {
+  router.put('/:id',withAuth, (req, res) => {
     Profile.update(
       {
       firstname: req.body.firstname,
@@ -91,7 +94,7 @@ router.post('/', (req, res) => {
     //   ------------------------------------------------------------------------------------------------
 
     // DELETE /api/users/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id',withAuth, (req, res) => {
     Profile.destroy({
       where: {
         id: req.params.id

@@ -44,7 +44,7 @@ async function newFormHandler(event) {
     });
   
     if (response.ok && response1.ok ) {
-      document.location.replace('/user');
+      document.location.replace('/user_profile');
     } else {
       alert(response.statusText);
     }

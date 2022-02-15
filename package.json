@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Social Media App",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server.js"
   },
   "author": "Abdurraouf Sadi, Eiko Ujifusa, Alex Marten, Curtis Hong, Mianta McKnight, Dan Doherty",
@@ -25,6 +25,7 @@
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
+    "jest": "^27.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.16.0"
   },

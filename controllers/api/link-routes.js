@@ -53,9 +53,9 @@ router.get('/:id', (req, res) => {
        
         link_url_facebook: req.body.link_url_facebook,
         link_url_twitter: req.body.link_url_twitter,
-        link_url_linkedin:req.body.link_url_linkedin,
-        link_url_github:req.body.link_url_github,
-        link_url_intagram:req.body.link_url_intagram,
+        link_url_linkedin: req.body.link_url_linkedin,
+        link_url_github: req.body.link_url_github,
+        link_url_intagram: req.body.link_url_intagram,
         user_id: req.session.user_id
       })
         .then(dbLinktData => res.json(dbLinktData))
@@ -71,9 +71,9 @@ router.get('/:id', (req, res) => {
       {
         link_url_facebook: req.body.link_url_facebook,
         link_url_twitter: req.body.link_url_twitter,
-        link_url_linkedin:req.body.link_url_linkedin,
-        link_url_github:req.body.link_url_github,
-        link_url_intagram:req.body.link_url_intagram,
+        link_url_linkedin: req.body.link_url_linkedin,
+        link_url_github: req.body.link_url_github,
+        link_url_intagram: req.body.link_url_intagram,
       },
       {
         where: {

@@ -5,7 +5,8 @@ const {  User, Link, Profile } = require('../models');
 
 // gome route
 router.get('/', (req, res) => {
-      res.render('homepage')
+
+      res.render('homepage',{loggedIn: req.session.loggedIn})
 });
 // ------------------------------------------------------------------------------------------
 //profile route
@@ -38,12 +39,8 @@ router.get('/user/:id',(req, res)=>{
   }
 ],
     raw : true
-  }).then(([userData])=>{
-    if (!Profile.firstname) {
-
-      res.status(404).json({ message: 'No user found with this id' });
-      return;
-    }
+  }).then((userData)=>{
+    
     console.log(userData);
     const data= {
     profiles_firstname: userData['profiles.firstname'],

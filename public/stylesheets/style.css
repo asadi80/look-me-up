@@ -1,0 +1,25 @@
+#qrcode{
+    position: relative;
+    display: inherit;
+}
+img {
+  border-radius: 10px;
+}
+
+#logo{
+  width: 150px;
+  position: absolute;
+      top: 110px;
+      left: 75px;
+  background-color: white;
+  border: solid 5px yellowgreen;
+  border-radius: 5px;
+}
+
+#user-id{
+  display: none;
+}
+.delete-post-btn{
+  margin-left: 7px;
+}
+

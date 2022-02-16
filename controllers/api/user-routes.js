@@ -103,7 +103,7 @@ router.post('/', (req, res) => {
  router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.status(200).end();
     });
   } else {
     res.status(404).end();
@@ -114,9 +114,7 @@ router.post('/', (req, res) => {
 
   // PUT /api/users/1
 router.put('/:id', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-  
-    // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
+    
     User.update(req.body, {
         individualHooks: true,
       where: {

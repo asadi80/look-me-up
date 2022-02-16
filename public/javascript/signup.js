@@ -18,7 +18,7 @@ async function signupFormHandler(event) {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert(response.statusText);
+        alert("this email is already in use");
       }
     }
 }

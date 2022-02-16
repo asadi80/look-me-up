@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/',withAuth, (req, res) => {
     // Access our User model and run .findAll() method)
     Profile.findAll({
-      // attributes: ['id', 'link_url', 'title', 'created_at'],
+     
       order: [['created_at', 'DESC']], 
       include: [
         {
@@ -26,7 +26,7 @@ router.get('/',withAuth, (req, res) => {
 // GET /api/users/1
 router.get('/:id',withAuth, (req, res) => {
   Profile.findOne({
-    // attributes: ['id', 'link_url', 'title', 'created_at'],
+    
     where: {
       id: req.params.id
     },

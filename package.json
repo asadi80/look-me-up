@@ -5,18 +5,23 @@
   "main": "node server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Abdurraouf Sadi",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "canvas-confetti": "^1.5.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^16.0.0",
+    "easyqrcodejs": "^4.4.10",
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.3",
+    "qr-with-logo": "^1.0.5",
+    "qrcode": "^1.5.0",
+    "qrcode-with-logos": "^1.0.3",
     "sequelize": "^6.16.1"
   }
 }

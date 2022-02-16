@@ -41,7 +41,7 @@ Link.init(
           isURL: true
         }
       },
-      link_url_intagram: {
+      link_url_instagram: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {

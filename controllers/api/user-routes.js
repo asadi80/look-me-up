@@ -148,6 +148,7 @@ router.delete('/:id', (req, res) => {
           return;
         }
         res.json(dbUserData);
+        req.session.destroy();
       })
       .catch(err => {
         console.log(err);

@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { User} = require('../../models');
+const { User, Link, Profile} = require('../../models');
+const withAuth = require('../../utils/auth');
+
 // GET /api/users
 router.get('/', (req, res) => {
     // Access our User model and run .findAll() method)
@@ -16,18 +18,30 @@ router.get('/', (req, res) => {
 //   --------------------------------------------------------------------------------------------
 
 // GET /api/users/1
-router.get('/:id', (req, res) => {
+router.get('/',withAuth, (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password'] },
-      where: {
-        id: req.params.id
-      }
+      attributes: { exclude: ['password','email'] },
+      where:{
+        id: req.session.user_id
+      }, 
+      include: [
+        {
+        model:Profile,
+        attributes: ['firstname', 'lastname','description']
+    },
+    {
+      model: Link,
+      attributes: ['link_url_facebook', 'link_url_twitter', 'link_url_linkedin', 'link_url_github', 'link_url_intagram']
+    }
+  ],
     })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id' });
           return;
         }
+        console.log(userData);
+        res.render('user-profile',{users:dbUserData})
         res.json(dbUserData);
       })
       .catch(err => {
@@ -36,23 +50,6 @@ router.get('/:id', (req, res) => {
       });
   });
   // ---------------------------------------------------------------------------------------------------------------
-// router.post('/signup', (req, res) => {
-//   // expects {username: 'name', email: 'name@gmail.com', password: 'password1234'}
-//   User.create({
-   
-//     email: req.body.email,
-//     password: req.body.password
-//   })
-//     .then(userData => {
-//       req.session.save(() => {
-//         req.session.user_id = userData.id;
-       
-//         req.session.loggedIn = true;
-//         res.json(userData);
-//       });
-//     })
-// });
-//   ------------------------------------------------------------------------------------------------
 
 
 // POST /api/users

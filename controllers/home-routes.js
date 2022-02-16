@@ -40,6 +40,10 @@ router.get('/user/:id',(req, res)=>{
 ],
     raw : true
   }).then((userData)=>{
+    if(!userData){
+      res.status(404).redirect('/')
+      return;
+    }
     
     console.log(userData);
     const data= {

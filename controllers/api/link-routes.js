@@ -56,8 +56,9 @@ router.get('/:id', (req, res) => {
         link_url_twitter: req.body.link_url_twitter,
         link_url_linkedin:req.body.link_url_linkedin,
         link_url_github:req.body.link_url_github,
-        link_url_intagram:req.body.link_url_intagram,
-        link_url_youtube:req.body.link_url_youtube,
+        link_url_intagram:req.body.link_url_intagram, // spelling // 
+        link_url_youtube:req.body.link_url_youtube, 
+        link_url_custom:req.body.link_url_custom,
         user_id: req.session.user_id
       })
         .then(dbLinktData => res.json(dbLinktData))

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
+rel="stylesheet"
+/>
+    <title>Look Me Up</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid text-center">
+          <ul class="navbar-nav d-flex flex-row">
+            <!-- Icons -->
+            
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="/">
+                <i class="fas fa-home"></i>
+              </a>
+            </li>
+            <!-- Icon dropdown -->
+            <li class="nav-item me-3 me-lg-0 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                 {{#if loggedIn }}
+                <li>
+                  <a class="dropdown-item" href="/profile">dashboard</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/user">Profile</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" id="logout" href="#">Log out</a>
+                </li>
+                 {{else}}
+                  <li>
+                  <a class="dropdown-item" href="/login">Log in</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/signup">Sign up</a>
+                </li>
+                 {{/if}}
+              </ul>
+            </li>
+            
+          </ul>
+         {{!-- <img src="/image/Look Me.png" width="60px"  class="img-fluid" alt=""> --}}
+        </div>
+      </nav>
+
+
+
+       <main>
+      {{{ body }}}
+    </main>
+
+
+
+
+    <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <span class="text-dark m-1">Done by: </span>
+            <!-- Alex -->
+            <a
+              class=" btn-link btn-floating btn-lg  text-dark m-1 "
+                id="hov"
+              href="https://github.com/alex-d-marten"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Alex</a>
+      
+            <!-- Dan -->
+            <a
+              class=" btn-link btn-floating btn-lg text-dark m-1"
+                 id="hov"
+              href="https://github.com/ddoherty6"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Dan</a>
+      
+            <!-- Eiko -->
+            <a
+              class=" btn-link btn-floating btn-lg text-dark m-1"
+                 id="hov"
+              href="https://github.com/eikouji"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Eiko</a>
+      
+            <!-- Curtis -->
+            <a
+              class=" btn-link btn-floating btn-lg text-dark m-1"
+                 id="hov"
+              href="https://github.com/NonchalantGarage"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Curtis</a>
+      
+            <!--Mianta -->
+            <a
+              class=" btn-link btn-floating btn-lg text-dark m-1 "
+                 id="hov"
+              href="https://github.com/RogueStorm7"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Mianta</a>
+            <!-- Christina -->
+            <a
+              class=" btn-link btn-floating btn-lg text-dark m-1 "
+                 id="hov"
+              href="https://github.com/tinasieben"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Christina</a>
+              <!-- Abdurraouf -->
+            <a
+              class=" btn-link btn-floating btn-lg text-dark m-1"
+                 id="hov"
+              href="https://github.com/asadi80"
+              role="button"
+              data-mdb-ripple-color="dark"
+              >Abdurraouf</a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Made with ❤️
+        
+        </div>
+        <!-- Copyright -->
+      </footer>
+     
+     {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+     {{/if}}
+
+
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"
+></script>
+
+</body>
+</html>

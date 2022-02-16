@@ -5,7 +5,8 @@ const Profile = require("./Profile");
 
 // create associations
 User.hasMany(Link, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+   
   });
 
   Link.belongsTo(User, {
@@ -13,7 +14,8 @@ User.hasMany(Link, {
   });
 
   User.hasMany(Profile, {
-    foreignKey: 'user_id'
+    foreignKey: 'user_id',
+   
   });
 
   Profile.belongsTo(User, {

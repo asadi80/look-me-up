@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Link, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -47,7 +48,7 @@ router.get('/:id', (req, res) => {
   });
   // ---------------------------------------------------------------------------
   //POST /api/links
-  router.post('/', (req, res) => {
+  router.post('/',withAuth, (req, res) => {
       // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
       Link.create({
        
@@ -56,6 +57,7 @@ router.get('/:id', (req, res) => {
         link_url_linkedin:req.body.link_url_linkedin,
         link_url_github:req.body.link_url_github,
         link_url_intagram:req.body.link_url_intagram,
+        link_url_youtube:req.body.link_url_youtube,
         user_id: req.session.user_id
       })
         .then(dbLinktData => res.json(dbLinktData))
@@ -66,7 +68,7 @@ router.get('/:id', (req, res) => {
     });
   // ---------------------------------------------------------------------------
   // update links
-  router.put('/:id', (req, res) => {
+  router.put('/:id',withAuth, (req, res) => {
     Link.update(
       {
         link_url_facebook: req.body.link_url_facebook,
@@ -74,6 +76,7 @@ router.get('/:id', (req, res) => {
         link_url_linkedin:req.body.link_url_linkedin,
         link_url_github:req.body.link_url_github,
         link_url_intagram:req.body.link_url_intagram,
+        link_url_youtube:req.body.link_url_youtube,
       },
       {
         where: {
@@ -96,7 +99,7 @@ router.get('/:id', (req, res) => {
   // ---------------------------------------------------------------------------
 
   // delete link
-  router.delete('/:id', (req, res) => {
+  router.delete('/:id', withAuth,(req, res) => {
     Link.destroy({
       where: {
         id: req.params.id

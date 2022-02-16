@@ -2,6 +2,11 @@ const express = require('express');
 const routes = require('./controllers/');
 const sequelize = require('./config/connection');
 const path = require('path');
+<<<<<<< HEAD
+=======
+const app = express();
+const PORT = process.env.PORT || 3001;
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -21,6 +26,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(session(sess));
 const helpers = require('./utils/helpers');
+const { truncate } = require('fs/promises');
 const hbs = exphbs.create({ helpers });
 
 app.use(express.json());

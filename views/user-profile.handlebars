@@ -5,7 +5,11 @@
             <div class="col-lg-12 col-xl-11">
               <div class="card text-black" style="border-radius: 25px;">
                 <div class="card-body p-md-5">
+                  <p class="text-center h1 fw-bold mb-3 mx-1 mx-md-4 mt-4">{{users.profiles_firstname}} <span> {{users.profiles_lastname}}</span></p> 
+                      <hr>  
+                      <p class="text-center h4 fw-bold mb-5 mx-1 mx-md-4 mt-4">{{users.profiles_description}} </p> 
                   <div class="row justify-content-center">
+<<<<<<< HEAD
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                        
                     <!-- User Profile Page -->
@@ -15,25 +19,43 @@
       
                       <!-- Facebook Link -->
                         <div class="d-flex flex-row align-items-center mb-4">
+=======
+                    <div class="col-md-10 col-lg-6 col-xl-2 order-2 order-lg-1">
+      
+                      
+                      <p id="user-id"  value="{{users.profiles_user_id}}">{{users.profiles_user_id}}</p>
+                      <div class="mx-1 mx-md-4">
+      
+                         <div class=" align-items-center mt-4 mb-2  ">
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c
                           <a class="btn btn-primary" href="{{users.links_link_url_facebook}}">
                             <i class="fab fa-facebook fa-lg"></i>
                           </a>
                         </div>
 
+<<<<<<< HEAD
                       <!-- Twitter Link -->
                         <div class="d-flex flex-row align-items-center mb-4">
+=======
+                        <div class="  align-items-center mb-2 ">
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c
                             <a class=" btn btn-info" href="{{users.links_link_url_twitter}}">
                               <i class="fab fa-twitter fa-lg"></i>
                             </a>
                           </div>
 
+<<<<<<< HEAD
                       <!-- Youtube Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
+=======
+                          <div class="  align-items-center mb-2 ">
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c
                             <a class=" btn btn-danger"  href="{{users.links_link_url_youtube}}">
                               <i class="fab fa-youtube fa-lg"></i>
                             </a>
                           </div>
 
+<<<<<<< HEAD
                         <!-- Instagram Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
                             <a class=" btn btn-secondary" href="{{users.links_link_url_instagram}}">
@@ -43,14 +65,28 @@
                            
                         <!-- LinkedIn Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
+=======
+                          <div class="  align-items-center mb-2 ">
+                            <a class=" btn btn-secondary" href="{{users.links_link_url_intagram}}">
+                              <i class="fab fa-instagram fa-lg"></i>
+                            </a>
+                          </div>
+
+                          <div class="  align-items-center mb-2 ">
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c
                             <a class=" btn btn-primary" href="{{users.links_link_url_linkedin}}">
                               <i class="fab fa-linkedin-in fa-lg"></i>
                             </a>
                           </div>
 
+<<<<<<< HEAD
                         <!-- GitHub Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
                             <a class=" btn btn-dark" href="{{users.links_link_url_github}}">
+=======
+                          <div class=" align-items-center mb-2">
+                            <a class=" btn btn-dark " href="{{users.links_link_url_github}}">
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c
                               <i class="fab fa-github fa-lg"></i>
                             </a>
                           </div>
@@ -65,9 +101,11 @@
                       </div>
       
                     </div>
-                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                    <div class="col-md-10 col-lg-6 col-xl-4 d-flex align-items-center order-1 order-lg-2">
       
-                      <img src="" class="img-fluid" alt="Sample image">
+                         <div class=" img-fluid justify-content-center" id="qrcode">
+                           <img class="img-fluid" id="logo" src="/image/oie_transparent.png" alt="">
+                         </div>
       
                     </div>
                   </div>
@@ -78,5 +116,12 @@
         </div>
       </section>
 
+<<<<<<< HEAD
 <!-- There should be an option to add a link to a custom link or social networking website, such as a 
 personal profile page, discord server, or other connectivity websites people might want to add. -->
+=======
+
+<script src="/javascript/qrcode.js"></script>
+<script src="/javascript/qrcode.min.js"></script>
+<script src="/javascript/qrcode-user.js"></script>
+>>>>>>> 60585515b4a1653b1384d6da3c8d011d7a56b88c

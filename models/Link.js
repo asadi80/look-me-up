@@ -16,44 +16,44 @@ Link.init(
       link_url_facebook: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isURL: true
-        }
+        // validate: {
+        //   isURL: true
+        // }
       },
       link_url_twitter: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isURL: true
-        }
+        // validate: {
+        //   isURL: true
+        // }
       },
       link_url_linkedin: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isURL: true
-        }
+        // validate: {
+        //   isURL: true
+        // }
       },
       link_url_github: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isURL: true
-        }
+        // validate: {
+        //   isURL: true
+        // }
       },
       link_url_instagram: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isURL: true
-        }
+        // validate: {
+        //   isURL: true
+        // }
       },
       link_url_youtube: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate: {
-          isURL: true
-        }
+        // validate: {
+        //   isURL: true
+        // }
       },
       user_id: {
         type: DataTypes.INTEGER,

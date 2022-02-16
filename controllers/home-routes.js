@@ -5,7 +5,8 @@ const {  User, Link, Profile } = require('../models');
 
 // gome route
 router.get('/', (req, res) => {
-      res.render('homepage',{loggedIn:req.session.loggedIn})
+
+      res.render('homepage',{loggedIn: req.session.loggedIn})
 });
 // ------------------------------------------------------------------------------------------
 //profile route
@@ -19,10 +20,10 @@ router.get('/profile',withAuth, (req, res) => {
  
 });
 // ------------------------------------------------------------------------------------------
- // fetching profile and links by user id 
+ // fetching profile and links by user id  for public 
 router.get('/user/:id',(req, res)=>{
- 
- User.findAll({
+  
+ User.findOne({
   attributes: { exclude: ['password','email'] },
     where:{
       id: req.params.id
@@ -34,12 +35,16 @@ router.get('/user/:id',(req, res)=>{
   },
   {
     model: Link,
-    attributes: ['link_url_facebook', 'link_url_twitter', 'link_url_linkedin', 'link_url_github', 'link_url_intagram']
+    attributes: ['link_url_facebook', 'link_url_twitter', 'link_url_linkedin', 'link_url_github', 'link_url_intagram','link_url_youtube']
   }
 ],
     raw : true
-  }).then(([userData])=>{
-   
+  }).then((userData)=>{
+    if(!userData){
+      res.status(404).redirect('/')
+      return;
+    }
+    
     console.log(userData);
     const data= {
     profiles_firstname: userData['profiles.firstname'],
@@ -49,6 +54,8 @@ router.get('/user/:id',(req, res)=>{
     links_link_url_twitter: userData['links.link_url_twitter'],
     links_link_url_linkedin: userData['links.link_url_linkedin'],
     links_link_url_intagram:userData['links.link_url_intagram'],
+    links_link_url_youtube:userData['links.link_url_youtube'],
+    links_link_url_github:userData['links.link_url_github'],
     }
     console.log(data);
     res.render('user',{users:data})
@@ -56,7 +63,7 @@ router.get('/user/:id',(req, res)=>{
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
-  });
+  }); 
 })
 
 // ------------------------------------------------------------------------------------------
@@ -98,28 +105,80 @@ router.get('/user/:id',(req, res)=>{
       include: [
         {
         model:Profile,
-        attributes: ['firstname', 'lastname','description']
+        attributes: ['firstname', 'lastname','description','user_id']
     },
     {
       model: Link,
-      attributes: ['link_url_facebook', 'link_url_twitter', 'link_url_linkedin', 'link_url_github', 'link_url_intagram']
+      attributes: ['link_url_facebook', 'link_url_twitter', 'link_url_linkedin', 'link_url_github', 'link_url_intagram','link_url_youtube']
     }
   ],
+  raw : true
     })
-      .then(dbUserData => {
-        if (!dbUserData) {
-          res.status(404).json({ message: 'No user found with this id' });
-          return;
-        }
-        console.log(dbUserData);
-        res.render('user-profile',{users:dbUserData})
-       
+      .then(userProfileData => {
+        console.log(userProfileData);
+        const data= {
+          profiles_firstname: userProfileData['profiles.firstname'],
+          profiles_lastname: userProfileData['profiles.lastname'],
+          profiles_description:userProfileData['profiles.description'],
+          profiles_user_id: userProfileData['profiles.user_id'],
+          links_link_url_facebook: userProfileData['links.link_url_facebook'],
+          links_link_url_twitter: userProfileData['links.link_url_twitter'],
+          links_link_url_linkedin: userProfileData['links.link_url_linkedin'],
+          links_link_url_intagram:userProfileData['links.link_url_intagram'],
+          links_link_url_youtube:userProfileData['links.link_url_youtube'],
+          links_link_url_github:userProfileData['links.link_url_github'],
+        
+          }
+        res.render('user-profile',{users:data,loggedIn:true})
       })
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
       });
   });
+
+// ------------------------------------------------------------------------------------------
+// edit user profile info
+  router.get('/edit-profile', withAuth, (req, res) => {
+    User.findOne({
+      attributes: { exclude: ['password','email'] },
+      where:{
+        id: req.session.user_id
+      }, 
+      include: [
+        {
+        model:Profile,
+        attributes: ['firstname', 'lastname','description','user_id']
+    },
+    {
+      model: Link,
+      attributes: ['link_url_facebook', 'link_url_twitter', 'link_url_linkedin', 'link_url_github', 'link_url_intagram','link_url_youtube']
+    }
+  ],
+  raw : true
+    })
+      .then(userProfileData => {
+        console.log(userProfileData);
+        const data= {
+          profiles_firstname: userProfileData['profiles.firstname'],
+          profiles_lastname: userProfileData['profiles.lastname'],
+          profiles_description:userProfileData['profiles.description'],
+          profiles_user_id: userProfileData['profiles.user_id'],
+          links_link_url_facebook: userProfileData['links.link_url_facebook'],
+          links_link_url_twitter: userProfileData['links.link_url_twitter'],
+          links_link_url_linkedin: userProfileData['links.link_url_linkedin'],
+          links_link_url_intagram:userProfileData['links.link_url_intagram'],
+          links_link_url_youtube:userProfileData['links.link_url_youtube'],
+          links_link_url_github:userProfileData['links.link_url_github'],
+          }
+        res.render('edit-user-info',{users:data,loggedIn:true})
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
   
   
 module.exports = router;

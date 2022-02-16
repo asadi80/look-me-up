@@ -1,3 +1,4 @@
+<!-- User Profile Page -->
 <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -6,46 +7,60 @@
                 <div class="card-body p-md-5">
                   <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-      
+                       
+                    <!-- User Profile Page -->
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">User Profile</p>
                       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">{{users.profiles_firstname}}{{users.profiles_lastname}}</p>      
                       <div class="mx-1 mx-md-4">
       
+                      <!-- Facebook Link -->
                         <div class="d-flex flex-row align-items-center mb-4">
                           <a class="btn btn-primary" href="{{users.links_link_url_facebook}}">
                             <i class="fab fa-facebook fa-lg"></i>
                           </a>
                         </div>
 
+                      <!-- Twitter Link -->
                         <div class="d-flex flex-row align-items-center mb-4">
                             <a class=" btn btn-info" href="{{users.links_link_url_twitter}}">
                               <i class="fab fa-twitter fa-lg"></i>
                             </a>
                           </div>
 
+                      <!-- Youtube Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
                             <a class=" btn btn-danger"  href="{{users.links_link_url_youtube}}">
                               <i class="fab fa-youtube fa-lg"></i>
                             </a>
                           </div>
 
+                        <!-- Instagram Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
-                            <a class=" btn btn-secondary" href="{{users.links_link_url_intagram}}">
+                            <a class=" btn btn-secondary" href="{{users.links_link_url_instagram}}">
                               <i class="fab fa-instagram fa-lg"></i>
                             </a>
                           </div>
-
+                           
+                        <!-- LinkedIn Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
                             <a class=" btn btn-primary" href="{{users.links_link_url_linkedin}}">
                               <i class="fab fa-linkedin-in fa-lg"></i>
                             </a>
                           </div>
 
+                        <!-- GitHub Link -->
                           <div class="d-flex flex-row align-items-center mb-4">
                             <a class=" btn btn-dark" href="{{users.links_link_url_github}}">
                               <i class="fab fa-github fa-lg"></i>
                             </a>
                           </div>
+
+                        <!-- Custom Link -->
+                         <div class="d-flex flex-row align-items-center mb-4">
+                           <a class=" btn btn-primary" href="{{users.links_custom}}">
+                            <i class='fa fa-chain'></i>
+                           </a>
+                         </div>
 
                       </div>
       
@@ -63,3 +78,5 @@
         </div>
       </section>
 
+<!-- There should be an option to add a link to a custom link or social networking website, such as a 
+personal profile page, discord server, or other connectivity websites people might want to add. -->

@@ -1,4 +1,5 @@
-<section class="vh-100" style="background-color: #eee;">
+
+<section class="vh-100 mt-4" style="background-color: #eee;">
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
@@ -13,50 +14,58 @@
                       
                       <p id="user-id"  value="{{users.profiles_user_id}}">{{users.profiles_user_id}}</p>
                       <div class="mx-1 mx-md-4">
-      
-                         <div class=" align-items-center mt-4 mb-2  ">
+                        {{#if users.links_link_url_facebook}}  
+                         <div class=" align-items-center mt-3 mb-2  d-grid">
                           <a class="btn btn-primary" href="{{users.links_link_url_facebook}}">
-                            <i class="fab fa-facebook fa-lg"></i>
+                            <i class="fab fa-facebook fa-2x"></i>
                           </a>
                         </div>
+                        {{/if}}      
 
-                        <div class="  align-items-center mb-2 ">
+                        {{#if users.links_link_url_twitter}}
+                        <div class="  align-items-center mb-2 d-grid">
                             <a class=" btn btn-info" href="{{users.links_link_url_twitter}}">
-                              <i class="fab fa-twitter fa-lg"></i>
+                              <i class="fab fa-twitter fa-2x"></i>
                             </a>
                           </div>
+                          {{/if}}      
 
-                          <div class="  align-items-center mb-2 ">
+                          {{#if users.links_link_url_youtube}}
+                          <div class="  align-items-center mb-2 d-grid">
                             <a class=" btn btn-danger"  href="{{users.links_link_url_youtube}}">
-                              <i class="fab fa-youtube fa-lg"></i>
+                              <i class="fab fa-youtube fa-2x"></i>
                             </a>
                           </div>
-
-                          <div class="  align-items-center mb-2 ">
+                          {{/if}}      
+                          {{#if users.links_link_url_intagram}}
+                          <div class="  align-items-center mb-2 d-grid">
                             <a class=" btn btn-secondary" href="{{users.links_link_url_intagram}}">
-                              <i class="fab fa-instagram fa-lg"></i>
+                              <i class="fab fa-instagram fa-2x"></i>
                             </a>
                           </div>
-
-                          <div class="  align-items-center mb-2 ">
+                          {{/if}}      
+                          {{#if users.links_link_url_linkedin}}
+                          <div class="  align-items-center mb-2 d-grid">
                             <a class=" btn btn-primary" href="{{users.links_link_url_linkedin}}">
-                              <i class="fab fa-linkedin-in fa-lg"></i>
+                              <i class="fab fa-linkedin-in fa-2x"></i>
                             </a>
                           </div>
-
-                          <div class=" align-items-center mb-2">
+                          {{/if}}      
+                          {{#if users.links_link_url_github}}
+                          <div class=" align-items-center mb-2 d-grid">
                             <a class=" btn btn-dark " href="{{users.links_link_url_github}}">
-                              <i class="fab fa-github fa-lg"></i>
+                              <i class="fab fa-github fa-2x"></i>
                             </a>
                           </div>
+                          {{/if}}      
 
                       </div>
       
                     </div>
-                    <div class="col-md-10 col-lg-6 col-xl-4 d-flex align-items-center order-1 order-lg-2">
+                    <div class="col-md-10 col-lg-6 col-xl-4 d-flex justify-content-center align-items-center order-1 order-lg-2">
       
-                         <div class=" img-fluid justify-content-center" id="qrcode">
-                           <img class="img-fluid" id="logo" src="/image/oie_transparent.png" alt="">
+                         <div class=" img-fluidtext-center justify-content-center" id="qrcode">
+                           {{!-- <img class="img-fluid" id="logo" src="/image/oie_transparent.png" alt=""> --}}
                          </div>
       
                     </div>
@@ -67,7 +76,6 @@
           </div>
         </div>
       </section>
-
 
 <script src="/javascript/qrcode.js"></script>
 <script src="/javascript/qrcode.min.js"></script>

@@ -1,6 +1,7 @@
 # Look Me Up (Collaborative Project)
  An professional user friendly networking application
- ## Table of Contents
+
+## Table of Contents
  - [Description](#description)
  - [Motivation-for-Development](#motivation-for-development) 
  - [User-Story](#user-story)
@@ -13,21 +14,35 @@
 
 ## Description
 **Look Me Up** is RESTful API QR Code Resume application, that allows the user to have someone scan the QR code it takes them to the social media profile on FaceBook, Instagram, LinkDin, GitHub and Twitter. This works across all devies and is convenient for people to network and share their information with others.
+
 ## Motivation for Development
 We were thinking of ways to circulate our information without having to constantly carry business cards with us all the time. We believe that the **Look Me Up** App is not only cost effective, but environmentally friendly as well. Who doesn't want that?
+
 ## User Story
 As A professional seeking to grow my business.
 I WANT to quickly circulate my social media profiles when I am at conventions, conferences and out and about
 SO THAT I can network but also gain potential clientele.
+
 ## Technology Used
-MDBootstrap, mySQL, Heroku, Sequelize ORM, Handlebars.js, Node.js, and Express.js.   
+MDBootstrap, mySQL, Heroku, Sequelize ORM, Handlebars.js, Node.js, and Express.js.  
+
+## Screenshot 
+![Screenshot (34)](https://user-images.githubusercontent.com/89751266/154766168-96b01aac-517f-4937-8855-4193d5adbb93.png)
+
+## Demo
+https://drive.google.com/file/d/1JAbSn4qHI_mlqyEKC6uV6MBYGmU0eAEH/view
+
 ## Sneak-Peek
-![Sneak-peek]()
+[Look me up](https://look-meup.herokuapp.com/)
+
 ## Usage
 - Create an account on **Look Me Up** on the homepage
-- create your profile and then
+- create your profile and then input all your info.
+
 ## Links
-- []()
+- [Github](https://github.com/asadi80/look-me-up)
+- [Heroku](https://look-meup.herokuapp.com/)
+
 ## Collaborators-Credits
 - Abdurraouf Sadi &mdash; [github.com/asadi80](https://github.com/asadi80)
 - Alex Marten &mdash; [github.com/alex-d-marten](https://github.com/alex-d-marten)
